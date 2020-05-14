@@ -92,8 +92,6 @@ public class RTTC034_OrderAsGuest {
 		for(String winHandle : driver.getWindowHandles()){
 		    driver.switchTo().window(winHandle);
 		}
-		// Switch back to original browser (first window)
-		//driver.switchTo().window(winHandleBefore);
 		
 		FingerRingForladiesPOM.ClickAddToCartBtn();
 				
@@ -108,6 +106,8 @@ public class RTTC034_OrderAsGuest {
 	@Test(priority=2)
 	public void CheckOut() throws InterruptedException 
 	{
+		CheckOutPOM.displaybagCount();
+		
 		ShoppingCartPOM.ClickCheckOuttBtn();	
 		
 		//CheckOut Options
@@ -138,11 +138,15 @@ public class RTTC034_OrderAsGuest {
 		
 		//Payment Method
 		CheckOutPOM.CashOnDeliveryradiobtn();
-		CheckOutPOM.PaymentMethodComments("Payment Method comments");
 		CheckOutPOM.TermsAndConditionsCheckBox();
+		CheckOutPOM.ContinuePaymentMethod();
 		
+			
 		CheckOutPOM.ConfirmOrderBtn();
 		
+		CheckOutPOM.displaybagCount();
+		
+		ScreenShot.captureScreenShot("RTTC034_OrderSuccess");
 		Assert.assertEquals(CheckOutPOM.OrderSuccessMsg(), "Your order has been successfully processed!");
 	}
 	

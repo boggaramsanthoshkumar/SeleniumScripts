@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.training.sanity.tests.RTTC034_OrderAsGuest">
+      <class name="com.training.sanity.tests.RTTC035_AdminAddProdWithRewards">
         <methods>
-          <include name="setUpBeforeClass"/>
-          <include name="CheckOut"/>
+          <include name="AddNewproduct"/>
           <include name="tearDown"/>
+          <include name="setUpBeforeClass"/>
         </methods>
-      </class> <!-- com.training.sanity.tests.RTTC034_OrderAsGuest -->
+      </class> <!-- com.training.sanity.tests.RTTC035_AdminAddProdWithRewards -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

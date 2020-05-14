@@ -90,8 +90,8 @@ public class CheckOutPOM {
 	@FindBy(xpath="//input[@name='payment_method']")
 	private WebElement CashOnDeliveryradiobtn;
 	
-	//@FindBy(xpath="//textarea[contains(text(),'Delivery comments')]")
-	@FindBy(xpath="//textarea[@class='form-control'][@name='comment'][@xpath='2']")
+	@FindBy(xpath="//textarea[contains(text(),'Delivery comments')]")
+	//@FindBy(xpath="//textarea[@class='form-control'][@name='comment'][@xpath='2']")
 	private WebElement PaymentMethodComments;
 	
 	@FindBy(xpath="//input[@id='button-confirm']")
@@ -102,6 +102,13 @@ public class CheckOutPOM {
 	
 	@FindBy(xpath="//div[@class='tb_text_wrap tb_sep']//p[1]")
 	private WebElement OrderSuccessMsg;
+	
+	@FindBy(xpath="//input[@id='button-payment-method']")
+	private WebElement ContinuePaymentMethod;
+	
+	@FindBy(xpath="//h3[@class='heading']//span[@class='tb_items'][contains(text(),'0') or contains(text(),'1')]")
+	//FindBy(xpath="/html[1]/body[1]/div[2]/header[1]/div[1]/div[1]/div[3]/div[2]/div[1]/ul[1]/li[1]/h3[1]/a[1]/span[1]")
+	private WebElement bagCountZero;
 	
 	
 	public void SelectGuestCheckOutRadio()  
@@ -252,7 +259,7 @@ public class CheckOutPOM {
 	public void PaymentMethodComments(String comments)
 	{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		WebElement Element = driver.findElement(By.xpath("//textarea[@class='form-control'][@name='comment'][@xpath='2']"));
+		WebElement Element = driver.findElement(By.xpath("//textarea[contains(text(),'delivery method')]"));
         js.executeScript("arguments[0].scrollIntoView();", Element);
         
 		this.PaymentMethodComments.clear();
@@ -260,7 +267,7 @@ public class CheckOutPOM {
 		System.out.println("Entered Payment Method Comments");
 	}
 	
-	public void ConfirmOrderBtn()
+	public void ConfirmOrderBtn() throws InterruptedException
 	{
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebElement Element = driver.findElement(By.xpath("//input[@id='button-confirm']"));
@@ -268,14 +275,14 @@ public class CheckOutPOM {
 		
 		if (this.ConfirmOrderBtn.isDisplayed())
 		{
-			System.out.println("---->>>>Confirm order Button available <<<<<<------- ");
+			//System.out.println("---->>>>Confirm order Button available <<<<<<------- ");
 			this.ConfirmOrderBtn.click();
+			Thread.sleep(3000);
 		}
 		else
 		{
-			System.out.println("Unable to get button prop");
+			System.out.println("Unable to get button properties");
 		}
-		//this.ConfirmOrderBtn.click();
 	}
 	
 	public void ConitinueShippingMethod()
@@ -294,5 +301,21 @@ public class CheckOutPOM {
 		return (this.OrderSuccessMsg.getText());
 	}
 	
+	public void ContinuePaymentMethod()
+	{
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement Element = driver.findElement(By.xpath("//input[@id='button-payment-method']"));
+        js.executeScript("arguments[0].scrollIntoView();", Element);
+		
+        this.ContinuePaymentMethod.click();
+	}
+	
+	public void displaybagCount() {
+		if (this.bagCountZero.getText() =="0") {
+			System.out.println("Cart Empty : " + this.bagCountZero.getText());
+		} else {
+			System.out.println("Cart Items : " + this.bagCountZero.getText());
+		}
+	}
 	
 }
