@@ -48,10 +48,15 @@ public class LoginTests {
 	}
 	@Test
 	public void validLoginTest() {
-		loginPOM.sendUserName("santhosh.boggaram@in.ibm.com");
-		loginPOM.sendPassword("Welcome2IBM");
-		loginPOM.clickLoginBtn(); 
-		screenShot.captureScreenShot("First");
+		
+		System.out.println(driver.getTitle());
+		System.out.println(driver.findElement(By.tagName("title")).getText());
+		driver.findElement(By.tagName("title")).getAttribute("innerText");
+		
+//		loginPOM.sendUserName("santhosh.boggaram@in.ibm.com");
+//		loginPOM.sendPassword("Welcome2IBM");
+//		loginPOM.clickLoginBtn(); 
+//		screenShot.captureScreenShot("First");
 		
 
 	}

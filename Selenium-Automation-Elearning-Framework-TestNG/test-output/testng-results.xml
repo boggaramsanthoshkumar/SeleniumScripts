@@ -1,33 +1,205 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="63872" started-at="2020-05-14T04:36:01Z" finished-at="2020-05-14T04:37:05Z">
+  <suite name="Default suite" duration-ms="86004" started-at="2020-05-20T05:08:46Z" finished-at="2020-05-20T05:10:12Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="63872" started-at="2020-05-14T04:36:01Z" finished-at="2020-05-14T04:37:05Z">
-      <class name="com.training.sanity.tests.RTTC036_ReturnProduct">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.RTTC036_ReturnProduct@3532ec19]" name="setUpBeforeClass" is-config="true" duration-ms="14741" started-at="2020-05-14T04:36:01Z" finished-at="2020-05-14T04:36:16Z">
+    <test name="Default test" duration-ms="86004" started-at="2020-05-20T05:08:46Z" finished-at="2020-05-20T05:10:12Z">
+      <class name="com.training.sanity.tests.RTTC065_AdminToAddMultipleProducts">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.RTTC065_AdminToAddMultipleProducts@68c4039c]" name="setUpBeforeClass" is-config="true" duration-ms="11411" started-at="2020-05-20T05:08:46Z" finished-at="2020-05-20T05:08:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="LoginTest()[pri:0, instance:com.training.sanity.tests.RTTC036_ReturnProduct@3532ec19]" name="LoginTest" duration-ms="17467" started-at="2020-05-14T04:36:16Z" finished-at="2020-05-14T04:36:33Z">
+        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String)[pri:0, instance:com.training.sanity.tests.RTTC065_AdminToAddMultipleProducts@68c4039c]" name="Login" duration-ms="2871" started-at="2020-05-20T05:08:58Z" data-provider="excel-inputs-Login" finished-at="2020-05-20T05:09:01Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[admin]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[admin@123]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- LoginTest -->
-        <test-method status="PASS" signature="OpenOrderDetails()[pri:1, instance:com.training.sanity.tests.RTTC036_ReturnProduct@3532ec19]" name="OpenOrderDetails" duration-ms="11248" started-at="2020-05-14T04:36:33Z" finished-at="2020-05-14T04:36:44Z">
+        </test-method> <!-- Login -->
+        <test-method status="PASS" signature="OpenCatalogProducts()[pri:1, instance:com.training.sanity.tests.RTTC065_AdminToAddMultipleProducts@68c4039c]" name="OpenCatalogProducts" duration-ms="2536" started-at="2020-05-20T05:09:01Z" finished-at="2020-05-20T05:09:04Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- OpenOrderDetails -->
-        <test-method status="PASS" signature="ReturnOrder()[pri:2, instance:com.training.sanity.tests.RTTC036_ReturnProduct@3532ec19]" name="ReturnOrder" duration-ms="14629" started-at="2020-05-14T04:36:44Z" finished-at="2020-05-14T04:36:59Z">
+        </test-method> <!-- OpenCatalogProducts -->
+        <test-method status="PASS" signature="CreateNewProduct(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.training.sanity.tests.RTTC065_AdminToAddMultipleProducts@68c4039c]" name="CreateNewProduct" duration-ms="16795" started-at="2020-05-20T05:09:04Z" data-provider="excel-inputs-RTTC065" finished-at="2020-05-20T05:09:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Samsung_Santhosh]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Samsung_Santhosh]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[SKU-003]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[20000]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[100]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[TV]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Valid]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ReturnOrder -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.RTTC036_ReturnProduct@3532ec19]" name="tearDown" is-config="true" duration-ms="5734" started-at="2020-05-14T04:36:59Z" finished-at="2020-05-14T04:37:05Z">
+        </test-method> <!-- CreateNewProduct -->
+        <test-method status="PASS" signature="CreateNewProduct(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.training.sanity.tests.RTTC065_AdminToAddMultipleProducts@68c4039c]" name="CreateNewProduct" duration-ms="14704" started-at="2020-05-20T05:09:21Z" data-provider="excel-inputs-RTTC065" finished-at="2020-05-20T05:09:35Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Onida_Santhosh]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Onida_Santhosh]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[SKU-003]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[18000]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[100]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[TV]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Valid]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreateNewProduct -->
+        <test-method status="PASS" signature="CreateNewProduct(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.training.sanity.tests.RTTC065_AdminToAddMultipleProducts@68c4039c]" name="CreateNewProduct" duration-ms="15245" started-at="2020-05-20T05:09:35Z" data-provider="excel-inputs-RTTC065" finished-at="2020-05-20T05:09:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Bat_Santhosh]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Cricket Bat_Santhosh]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[SKU-003]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[12000]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[100]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Sports]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Valid]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreateNewProduct -->
+        <test-method status="PASS" signature="CreateNewProduct(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.training.sanity.tests.RTTC065_AdminToAddMultipleProducts@68c4039c]" name="CreateNewProduct" duration-ms="15150" started-at="2020-05-20T05:09:51Z" data-provider="excel-inputs-RTTC065" finished-at="2020-05-20T05:10:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Asus_Santhosh]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Asus Zenfone_Santhosh]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[SKU-003]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[7000]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[100]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Electronic]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Valid]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreateNewProduct -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.RTTC065_AdminToAddMultipleProducts@68c4039c]" name="tearDown" is-config="true" duration-ms="5771" started-at="2020-05-20T05:10:06Z" finished-at="2020-05-20T05:10:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.training.sanity.tests.RTTC036_ReturnProduct -->
+      </class> <!-- com.training.sanity.tests.RTTC065_AdminToAddMultipleProducts -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

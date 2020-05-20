@@ -3,13 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.training.sanity.tests.RTTC035_AdminAddProdWithRewards">
+      <class name="com.training.sanity.tests.RTTC066_AdminVerifyErrorForInvalidProductAdd">
         <methods>
-          <include name="AddNewproduct"/>
-          <include name="tearDown"/>
+          <include name="OpenCatalogProducts"/>
+          <include name="Login"/>
           <include name="setUpBeforeClass"/>
+          <include name="tearDown"/>
+          <include name="CreateNewProduct"/>
         </methods>
-      </class> <!-- com.training.sanity.tests.RTTC035_AdminAddProdWithRewards -->
+      </class> <!-- com.training.sanity.tests.RTTC066_AdminVerifyErrorForInvalidProductAdd -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

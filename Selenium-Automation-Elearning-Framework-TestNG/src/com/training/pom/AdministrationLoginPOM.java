@@ -49,4 +49,12 @@ public class AdministrationLoginPOM {
 		this.LoginBtn.click();
 	}
 	
+	public void AdminLogin(String sUserId, String sPassword)
+	{
+		this.EnterUserName(sUserId);
+		this.EnterPassword(sPassword);
+		this.ClickLogin();
+		System.out.println("Login Success");
+	}
+	
 }

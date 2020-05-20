@@ -1,24 +1,29 @@
 package com.training.pom;
 
+import static org.testng.Assert.assertEquals;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-//import com.training.generics.ScreenShot;
+import com.training.generics.ScreenShot;
 
 public class AdminProductsPOM {
 	private WebDriver driver; 
-	//private ScreenShot ScreenShot;
+	private ScreenShot ScreenShot;
 	
 	public AdminProductsPOM(WebDriver driver) {
 		this.driver = driver; 
+		ScreenShot = new ScreenShot(driver); 
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -26,9 +31,13 @@ public class AdminProductsPOM {
 	@FindBy(xpath="//div[@class='pull-right']//a[@class='btn btn-primary']")
 	private WebElement AddNewProduct;
 	
-	@FindBy(xpath="//input[@id='input-name1']")
-	private WebElement ProductName;
+	//Catalog->Products->Search Product
+	@FindBy(xpath="//input[@id='input-name']")
+	private WebElement SearchProductName;
 	
+	//Catalog->Products->Add New Product->Enter Product
+	@FindBy(xpath="//input[@id='input-name1']")
+	private WebElement AddProductName;
 	
 	@FindBy(xpath="//input[@id='input-meta-title1']")
 	private WebElement MetaTagTitle;
@@ -49,10 +58,10 @@ public class AdminProductsPOM {
 	private WebElement Linkstab;
 	
 	@FindBy(xpath="//input[@id='input-category']")
+	//input[@id='input-category']
 	private WebElement Categories;
 	
-	@FindBy(xpath="//a[contains(text(),'EARRINGS')]")
-	private WebElement EarringsElement;
+
 	
 	@FindBy(xpath="//a[contains(text(),'Discount')]")
 	private WebElement DiscountTab;
@@ -87,10 +96,15 @@ public class AdminProductsPOM {
 	@FindBy(xpath="//i[@class='fa fa-save']")
 	private WebElement SaveProduct;
 	
+	@FindBy(xpath="//i[@class='fa fa-reply']")
+	private WebElement CancelButton;
+	
 	//@FindBy(xpath="//div[@class='alert alert-success']")
 	@FindBy(xpath="//div[@class='alert alert-success' and contains(text(),'Success')]")
 	private WebElement SuccessMsg;
 	
+	@FindBy(xpath="//div[@class='alert alert-danger']")
+	private WebElement ErrorMsg;
 	
 	@FindBy(xpath="//td[5]//div[1]//span[1]//button[1]")
 	private WebElement StartDateCalenderIcon;
@@ -103,6 +117,25 @@ public class AdminProductsPOM {
 	@FindBy(xpath="//td[6]//div[1]//span[1]//button[1]//i[1]")
 	private WebElement EndDateCalenderIcon;
 	
+	@FindBy(xpath="//input[@id='input-price']")
+	private WebElement ProductPrice;
+	
+	@FindBy(xpath="//select[@id='input-status']")
+	private WebElement ProductStatus;
+	
+	@FindBy(xpath="//input[@id='input-model']")
+	private WebElement ProductModel;
+	
+	@FindBy(xpath="//input[@id='input-quantity']")
+	private WebElement ProductQty;
+	
+	@FindBy(xpath="//select[@id='input-image']")
+	private WebElement ProductImage;
+	
+	@FindBy(xpath="//button[@id='button-filter']")
+	private WebElement ProductFilterBtn;
+	
+	
 	
 	
 	
@@ -113,8 +146,41 @@ public class AdminProductsPOM {
 	
 	public void EnterProductName(String sProductname)
 	{
-		this.ProductName.clear();
-		this.ProductName.sendKeys(sProductname);
+		this.SearchProductName.clear();
+		this.SearchProductName.sendKeys(sProductname);
+	}
+	public void AddProductName(String sProductname)
+	{
+		this.AddProductName.clear();
+		this.AddProductName.sendKeys(sProductname);
+	}
+	public void EnterProductPrice(String iPrice)
+	{
+		this.ProductPrice.clear();
+		//this.ProductPrice.sendKeys(String.valueOf(iPrice));
+		this.ProductPrice.sendKeys(iPrice);
+	}
+	public void SelectProductStatus(String sProductStatus)
+	{
+		this.ProductStatus.sendKeys(sProductStatus);
+		
+	}
+	
+	public void EnterProductModel(String sProductModel)
+	{
+		this.ProductModel.clear();
+		this.ProductModel.sendKeys(sProductModel);		
+	}
+	
+	public void EnterProductQty(String iProductQty)
+	{
+		this.ProductQty.clear();
+		this.ProductQty.sendKeys(iProductQty);		
+	}
+	
+	public void SelectProductImage(String sProductImg)
+	{
+		this.ProductImage.sendKeys(sProductImg);	
 	}
 	
 	public void EnterMetaTagTitle(String sMetaTagTitle)
@@ -174,11 +240,18 @@ public class AdminProductsPOM {
 	
 	public void selectCategories(String sCategories) throws InterruptedException
 	{
+		
+		//@FindBy(xpath="//a[contains(text(),'EARRINGS')]")
+		
 		this.Categories.click();
+		Thread.sleep(3000);
 		this.Categories.sendKeys(sCategories);
-		Thread.sleep(3000);		
-		this.EarringsElement.click();
-		System.out.println("Selected Categories : "+sCategories);
+		Thread.sleep(3000);	
+		WebElement element =  driver.findElement(By.xpath("//a[contains(text(),'"+sCategories+"')]"));
+		//a[contains(text(),'"+sCategories+"')]
+		if(element.isEnabled())
+			element.click();
+		System.out.println("Selected Categories as: "+sCategories);
 	}
 	
 	public void OpenDiscountTab()
@@ -242,12 +315,65 @@ public class AdminProductsPOM {
 		this.SaveProduct.click();
 	}
 	
+	public void ClickCancelButton()
+	{
+		this.CancelButton.click();
+	}
+	
 	public String GetConfimMessage()
 	{
 		String str = this.SuccessMsg.getText();
 		return str;
 	}
 	
+	public String GetErrorMessage()
+	{
+		String str = this.ErrorMsg.getText();
+		return str;
+	}
+	
+	public void ClickOnFilterBtn()
+	{
+		this.ProductFilterBtn.click();
+	}
+	
+	public String displayFilterResults() throws NoSuchElementException {
+		String str="";
+		try {
+			WebElement table = driver
+					.findElement(By.xpath("//table[@class='table table-bordered table-hover']//tbody"));
+			
+			
+			if (table.isDisplayed()) {
+				List<WebElement> allRows = table.findElements(By.tagName("tr"));
+				
+				for (WebElement row : allRows) {
+					List<WebElement> cells = row.findElements(By.tagName("td"));
+					// row..getText().contains("Order ID"))
+					for (WebElement cell : cells) {
+						System.out.println("Table content >>   " + cell.getText());
+						str=cell.getText();
+//						if("No results!".equals(str))
+//						{
+//							count=count+1;
+//						}
+					}
+					System.out.print("");
+				}
+			}
+			if("No results!".equals(str))
+				return "InValid";
+			else
+				return "Valid";
+			
+		} catch (NoSuchElementException e) {
+			System.out.println("No Orders to Display / No Table");
+			System.exit(1);
+			return str;
+
+		}
+
+	}
 	
 	
 }
